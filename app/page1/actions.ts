@@ -2,7 +2,7 @@
 
 import { Page1Service } from "@/server/services/page1.service";
 import { UserService } from "@/server/services/user.service";
-import { CreatePage1Input, UpdatePage1Input } from "@/types/page1.type";
+import { CreatePage1Input, UpdatePage1Input } from "@/types/page.type";
 import { CreateUserInput, UpdateUserInput } from "@/types/user.type";
 import { revalidatePath } from "next/cache";
 

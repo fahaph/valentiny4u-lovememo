@@ -3,7 +3,7 @@ import { Page1Model } from "../models/page1.model";
 import {
   IPage,
   IPageResponse,
-} from "@/types/page1.type";
+} from "@/types/page.type";
 
 export class Page1Repository {
 

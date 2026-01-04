@@ -9,7 +9,7 @@ import {
   deletePage1Item,
   deleteUser,
 } from "./actions";
-import { IPageResponse } from "@/types/page1.type";
+import { IPageResponse } from "@/types/page.type";
 import { IUserResponse } from "@/types/user.type";
 
 export default function Page1() {
@@ -18,15 +18,6 @@ export default function Page1() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"page1" | "users">("page1");
-
-  // Form states for Page1
-  const [newPage1, setNewPage1] = useState({
-    images: [],
-    message: "",
-  });
-
-  // Form states for Users
-  const [newUser, setNewUser] = useState({ access_key: "", message: "" });
 
   useEffect(() => {
     loadData();
@@ -53,16 +44,16 @@ export default function Page1() {
     }
   };
 
-  const handleCreatePage1 = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const result = await createPage1Item(newPage1);
-    if (result.success) {
-      setNewPage1({ images: [], message: "" });
-      loadData();
-    } else {
-      alert("Error: " + result.error);
-    }
-  };
+  // const handleCreatePage1 = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   const result = await createPage1Item(newPage1);
+  //   if (result.success) {
+  //     setNewPage1({ images: [], message: "" });
+  //     loadData();
+  //   } else {
+  //     alert("Error: " + result.error);
+  //   }
+  // };
 
   // const handleCreateUser = async (e: React.FormEvent) => {
   //   e.preventDefault();

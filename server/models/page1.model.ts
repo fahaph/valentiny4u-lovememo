@@ -1,6 +1,6 @@
 import { Collection } from "mongodb";
 import { getDatabase } from "../db/mongodb";
-import { IPage } from "@/types/page1.type";
+import { IPage } from "@/types/page.type";
 
 export class Page1Model {
   private static collectionName = "page1";

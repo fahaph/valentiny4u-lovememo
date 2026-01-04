@@ -3,7 +3,7 @@ import {
   Page1Item,
   CreatePage1Input,
   UpdatePage1Input,
-} from "@/types/page1.type";
+} from "@/types/page.type";
 
 export class Page1Service {
   // Create a new item
