@@ -26,35 +26,35 @@ export async function getPage1ItemById(id: string) {
   }
 }
 
-export async function createPage1Item(data: CreatePage1Input) {
-  try {
-    const item = await Page1Service.createItem(data);
-    revalidatePath("/page1");
-    return { success: true, data: item };
-  } catch (error) {
-    return { success: false, error: (error as Error).message };
-  }
-}
+// export async function createPage1Item(data: CreatePage1Input) {
+//   try {
+//     const item = await Page1Service.createItem(data);
+//     revalidatePath("/page1");
+//     return { success: true, data: item };
+//   } catch (error) {
+//     return { success: false, error: (error as Error).message };
+//   }
+// }
 
-export async function updatePage1Item(id: string, data: UpdatePage1Input) {
-  try {
-    const item = await Page1Service.updateItem(id, data);
-    revalidatePath("/page1");
-    return { success: true, data: item };
-  } catch (error) {
-    return { success: false, error: (error as Error).message };
-  }
-}
+// export async function updatePage1Item(id: string, data: UpdatePage1Input) {
+//   try {
+//     const item = await Page1Service.updateItem(id, data);
+//     revalidatePath("/page1");
+//     return { success: true, data: item };
+//   } catch (error) {
+//     return { success: false, error: (error as Error).message };
+//   }
+// }
 
-export async function deletePage1Item(id: string) {
-  try {
-    const result = await Page1Service.deleteItem(id);
-    revalidatePath("/page1");
-    return { success: true, data: result };
-  } catch (error) {
-    return { success: false, error: (error as Error).message };
-  }
-}
+// export async function deletePage1Item(id: string) {
+//   try {
+//     const result = await Page1Service.deleteItem(id);
+//     revalidatePath("/page1");
+//     return { success: true, data: result };
+//   } catch (error) {
+//     return { success: false, error: (error as Error).message };
+//   }
+// }
 
 // ============ User Actions ============
 
@@ -96,12 +96,12 @@ export async function getUserById(id: string) {
 //   }
 // }
 
-export async function deleteUser(id: string) {
-  try {
-    const result = await UserService.deleteUser(id);
-    revalidatePath("/page1");
-    return { success: true, data: result };
-  } catch (error) {
-    return { success: false, error: (error as Error).message };
-  }
-}
+// export async function deleteUser(id: string) {
+//   try {
+//     const result = await UserService.deleteUser(id);
+//     revalidatePath("/page1");
+//     return { success: true, data: result };
+//   } catch (error) {
+//     return { success: false, error: (error as Error).message };
+//   }
+// }

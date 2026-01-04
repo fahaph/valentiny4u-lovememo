@@ -1,5 +1,5 @@
 import { UserRepository } from "../repositories/user.repo";
-import { User, CreateUserInput, UpdateUserInput } from "@/types/user.type";
+import { IUser, IUserResponse, CreateUserInput, UpdateUserInput } from "@/types/user.type";
 
 export class UserService {
   // Create a new user
@@ -13,18 +13,13 @@ export class UserService {
   // }
 
   // Get all users
-  static async getAllUsers(): Promise<User[]> {
+  static async getAllUsers(): Promise<IUserResponse[]> {
     return await UserRepository.findAll();
   }
 
   // Get user by ID
-  static async getUserById(id: string): Promise<User | null> {
+  static async getUserById(id: string): Promise<IUserResponse | null> {
     return await UserRepository.findById(id);
-  }
-
-  // Get user by email
-  static async getUserByEmail(email: string): Promise<User | null> {
-    return await UserRepository.findByEmail(email);
   }
 
   // Update user
@@ -43,12 +38,12 @@ export class UserService {
   // }
 
   // Delete user
-  static async deleteUser(id: string): Promise<boolean> {
-    return await UserRepository.delete(id);
-  }
+  // static async deleteUser(id: string): Promise<boolean> {
+  //   return await UserRepository.delete(id);
+  // }
 
   // Get user count
-  static async getUserCount(): Promise<number> {
-    return await UserRepository.count();
-  }
+  // static async getUserCount(): Promise<number> {
+  //   return await UserRepository.count();
+  // }
 }

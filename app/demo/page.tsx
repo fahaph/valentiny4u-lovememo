@@ -4,10 +4,6 @@ import { useEffect, useState } from "react";
 import {
   getAllPage1Items,
   getAllUsers,
-  createPage1Item,
-  updatePage1Item,
-  deletePage1Item,
-  deleteUser,
 } from "./actions";
 import { IPageResponse } from "@/types/page.type";
 import { IUserResponse } from "@/types/user.type";
@@ -133,13 +129,6 @@ export default function Page1() {
         {/* Page1 Items Tab */}
         {activeTab === "page1" && (
           <div className="space-y-6">
-            {/* Create Form */}
-            <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
-              <h2 className="text-2xl font-bold text-white mb-4">
-                Create New Page1 Item
-              </h2>
-            </div>
-
             {/* Raw JSON */}
             <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
               <h2 className="text-2xl font-bold text-white mb-4">
@@ -155,13 +144,6 @@ export default function Page1() {
         {/* Page1 Items Tab */}
         {activeTab === "users" && (
           <div className="space-y-6">
-            {/* Create Form */}
-            <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
-              <h2 className="text-2xl font-bold text-white mb-4">
-                Create New Page1 Item
-              </h2>
-            </div>
-
             {/* Raw JSON */}
             <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
               <h2 className="text-2xl font-bold text-white mb-4">

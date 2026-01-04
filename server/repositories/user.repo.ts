@@ -3,9 +3,9 @@ import { UserModel } from "../models/user.model";
 import { IUser, IUserResponse } from "@/types/user.type";
 
 export class UserRepository {
-  private static transform(userData: IUser & { _id: ObjectId }): IUserResponse {
+  private static transform(userData: IUser): IUserResponse {
     return {
-      _id: userData._id.toString(),
+      _id: userData._id?.toString(),
       access_key: userData.access_key,
       message: userData.message,
       createdAt: userData.createdAt?.toISOString(),
@@ -18,9 +18,25 @@ export class UserRepository {
     const collection = await UserModel.getCollection();
     const data = await collection.find({}).toArray();
 
-    return data.map((item) =>
-      this.transform(item as IUser & { _id: ObjectId })
-    );
+    return data.map((item) => this.transform(item as IUser));
+  }
+
+  static async findById(id: string): Promise<IUserResponse | null> {
+    const collection = await UserModel.getCollection();
+
+    // 1. ตรวจสอบเบื้องต้นว่า id เป็นรูปแบบที่ ObjectId ยอมรับไหม
+    if (!ObjectId.isValid(id)) {
+      throw new Error("Invalid ID format");
+    }
+
+    const data = await collection.findOne({ _id: new ObjectId(id) });
+
+    // 2. ถ้าไม่เจอข้อมูล ให้จัดการก่อนส่งเข้า transform
+    if (!data) {
+      return null; // หรือ throw new Error("User not found")
+    }
+
+    return this.transform(data);
   }
 
   // Create

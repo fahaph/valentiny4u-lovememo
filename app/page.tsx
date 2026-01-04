@@ -51,10 +51,10 @@ export default function Home() {
           {/* CTA Button */}
           <div className="mt-12">
             <Link
-              href="/page1"
+              href="/demo"
               className="inline-block bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white font-bold text-xl px-12 py-4 rounded-full hover:from-pink-600 hover:via-purple-600 hover:to-indigo-600 transition-all shadow-2xl hover:shadow-pink-500/50 hover:scale-105"
             >
-              Try CRUD Demo →
+              Try Demo →
             </Link>
           </div>
 
