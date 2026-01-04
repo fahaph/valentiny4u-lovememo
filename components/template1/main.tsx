@@ -5,6 +5,7 @@ import { getUserById } from "@/actions/user.actions";
 import { IUserResponse } from "@/types/user.type";
 import { PulseLoader } from "react-spinners";
 import { useRouter, usePathname } from "next/navigation";
+import { setVerifiedSession } from "@/actions/auth.actions";
 
 export default function Main({ id }: { id: string }) {
   const [inputValue, setInputValue] = useState<string>("");
@@ -14,15 +15,14 @@ export default function Main({ id }: { id: string }) {
   const router = useRouter();
   const pathname = usePathname();
 
-  // ภายใน useEffect ที่เช็ค access_key ใน Main.tsx
   useEffect(() => {
-    if (user?.access_key && inputValue === user.access_key) {
-      // เก็บ ID หรือ Flag ไว้ใน sessionStorage
-      sessionStorage.setItem(`auth_${id}`, "true");
-      // เปลี่ยนหน้า
+  if (user?.access_key && inputValue === user.access_key) {
+    (async () => {
+      await setVerifiedSession(id);   // set cookie
       router.push(`${pathname}?page=1`);
-    }
-  }, [inputValue, user, id, pathname, router]);
+    })();
+  }
+}, [inputValue, user, id, pathname, router]);
 
   useEffect(() => {
     loadData();
