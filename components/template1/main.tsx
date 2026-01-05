@@ -16,13 +16,13 @@ export default function Main({ id }: { id: string }) {
   const pathname = usePathname();
 
   useEffect(() => {
-  if (user?.access_key && inputValue === user.access_key) {
-    (async () => {
-      await setVerifiedSession(id);   // set cookie
-      router.push(`${pathname}?page=1`);
-    })();
-  }
-}, [inputValue, user, id, pathname, router]);
+    if (user?.access_key && inputValue === user.access_key) {
+      (async () => {
+        await setVerifiedSession(id); // set cookie
+        router.push(`${pathname}?page=1`);
+      })();
+    }
+  }, [inputValue, user, id, pathname, router]);
 
   useEffect(() => {
     loadData();
