@@ -58,27 +58,40 @@ export default function Main({ id }: { id: string }) {
 
   return (
     <div className="h-screen w-full p-4 md:p-20 bg-gray-100">
-      <div className="h-full w-full bg-white rounded-xl shadow-xl grid grid-cols-1 md:grid-cols-2 overflow-hidden">
-        {/* ฝั่งซ้าย: แสดงข้อมูล (Debug/Info) */}
-        <div className="p-10 bg-gray-50 border-r hidden md:block">
-          <h2 className="text-xl font-bold mb-4 text-gray-800">User Profile</h2>
-          <pre className="text-xs bg-gray-900 text-green-400 p-4 rounded-lg overflow-auto max-h-[400px]">
+      <div className="h-full w-full bg-red-100 rounded-4xl shadow-xl grid grid-cols-1 md:grid-cols-2 overflow-hidden gap-3 border-3 border-red-300">
+        {/* แสดงข้อมูล (Info) */}
+        <div className="p-10">
+          {/* <h2 className="text-xl font-bold mb-4 text-gray-800">User Profile</h2>
+          <pre className="text-xs bg-gray-900 text-red-300 p-4 rounded-lg overflow-auto max-h-[400px]">
             {JSON.stringify(user, null, 2)}
           </pre>
-          {error && <p className="text-red-500 mt-4">{error}</p>}
+          {error && <p className="text-red-100 mt-4">{error}</p>} */}
+
+          <div className="h-full flex items-center justify-center">
+            <img
+              src={user?.image[0]}
+              alt=""
+              className="rounded-xl"
+            />
+          </div>
         </div>
 
-        {/* ฝั่งขวา: Numpad */}
-        <div className="h-full p-6 flex items-center justify-center bg-white">
+        {/* Numpad */}
+        <div className="h-full p-6 flex items-center justify-center">
           <div className="w-full max-w-[320px]">
-            <div className="w-full mb-8">
+            <div className="w-full mb-3">
               <input
-                type="text" // เปลี่ยนเป็น password เพื่อความปลอดภัย
+                type="text"
                 value={inputValue}
                 readOnly
                 placeholder="Enter Access Key"
-                className="w-full text-4xl font-bold p-5 bg-gray-50 border-2 border-gray-200 rounded-2xl focus:outline-none text-gray-800 text-center tracking-widest shadow-inner"
+                className="placeholder:text-white w-full text-xl font-bold p-5 bg-red-400 rounded-full focus:outline-none text-white text-center tracking-widest shadow-inner"
               />
+            </div>
+
+            <div className="mb-3 text-center text-gray-700 text-lg">
+              <span className="font-bold">คำใบ้: </span>
+              {user?.message}
             </div>
 
             <div className="grid grid-cols-3 gap-4 w-full">
@@ -86,7 +99,7 @@ export default function Main({ id }: { id: string }) {
                 <button
                   key={num}
                   onClick={() => handlePress(num)}
-                  className="h-20 w-20 text-3xl font-semibold bg-white hover:bg-blue-50 text-gray-700 rounded-full shadow-sm border border-gray-100 active:scale-90 transition-all mx-auto flex items-center justify-center"
+                  className="h-20 w-20 text-3xl font-semibold bg-red-400 hover:bg-red-300 text-white rounded-full shadow-sm active:scale-90 transition-all mx-auto flex items-center justify-center cursor-pointer"
                 >
                   {num}
                 </button>
@@ -94,21 +107,21 @@ export default function Main({ id }: { id: string }) {
 
               <button
                 onClick={handleClear}
-                className="h-20 w-20 text-xl font-bold bg-red-50 hover:bg-red-100 text-red-600 rounded-full active:scale-90 transition-all mx-auto flex items-center justify-center"
+                className="h-20 w-20 text-xl font-bold bg-red-400 hover:bg-red-300 text-white rounded-full active:scale-90 transition-all mx-auto flex items-center justify-center cursor-pointer"
               >
                 C
               </button>
 
               <button
                 onClick={() => handlePress("0")}
-                className="h-20 w-20 text-3xl font-semibold bg-white hover:bg-blue-50 text-gray-700 rounded-full shadow-sm border border-gray-100 active:scale-90 transition-all mx-auto flex items-center justify-center"
+                className="h-20 w-20 text-3xl font-semibold bg-red-400 hover:bg-red-300 text-white rounded-full shadow-sm active:scale-90 transition-all mx-auto flex items-center justify-center cursor-pointer"
               >
                 0
               </button>
 
               <button
                 onClick={handleDelete}
-                className="h-20 w-20 flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full active:scale-90 transition-all mx-auto"
+                className="h-20 w-20 flex items-center justify-center bg-red-400 hover:bg-red-300 text-white rounded-full active:scale-90 transition-all mx-auto cursor-pointer"
               >
                 <Delete size={28} />
               </button>

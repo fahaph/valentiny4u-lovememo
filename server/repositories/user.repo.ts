@@ -8,6 +8,7 @@ export class UserRepository {
       _id: userData._id?.toString(),
       access_key: userData.access_key,
       message: userData.message,
+      image: userData.image,
       createdAt: userData.createdAt?.toISOString(),
       updatedAt: userData.updatedAt?.toISOString(),
     };

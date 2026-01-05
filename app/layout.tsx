@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Kanit } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const kanit = Kanit({ 
+  weight: ['400', '400'], // ระบุความหนา
+  subsets: ['latin', 'thai'], // ระบุภาษา
+  variable: '--font-kanit', // สร้างเป็น CSS Variable
+})
 
 export const metadata: Metadata = {
-  title: "Next.js MongoDB CRUD Demo",
-  description: "A complete CRUD demo with Next.js, TypeScript, and MongoDB",
+  title: "Valentiny Love Memo",
+  description: "Valentiny Love Memo",
 };
 
 export default function RootLayout({
@@ -25,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${kanit.className} antialiased`}
       >
         {children}
       </body>

@@ -19,7 +19,7 @@ export default async function Template1({ params, searchParams }: PageProps) {
   const currentPage = sParams.page as string;
   const cookieStore = await cookies()
 
-  const sessionCookie = cookieStore.get("session")?.value;
+  const sessionCookie = cookieStore.get("valentiny4uSession")?.value;
   const session = sessionCookie ? JSON.parse(sessionCookie) : null;
 
   const isVerified = session?.verified === true;

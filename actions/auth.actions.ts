@@ -12,7 +12,7 @@ export async function setVerifiedSession(userId: string) {
   };
 
   cookieStore.set(
-    "session",
+    "valentiny4uSession",
     JSON.stringify(payload),
     {
       httpOnly: false,
