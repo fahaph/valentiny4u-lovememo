@@ -58,22 +58,19 @@ export default function Main({ id }: { id: string }) {
 
   return (
     <div className="h-screen w-full p-4 md:p-20 bg-gray-100">
-      <div className="h-full w-full bg-red-100 rounded-4xl shadow-xl grid grid-cols-1 md:grid-cols-2 overflow-hidden gap-3 border-3 border-red-300">
+      <div className="h-full w-full bg-red-100 rounded-4xl shadow-xl grid grid-cols-1 md:grid-cols-2 gap-3 border-3 border-red-300">
         {/* แสดงข้อมูล (Info) */}
-        <div className="p-10">
+        <div className="h-full flex items-center justify-center p-10">
           {/* <h2 className="text-xl font-bold mb-4 text-gray-800">User Profile</h2>
           <pre className="text-xs bg-gray-900 text-red-300 p-4 rounded-lg overflow-auto max-h-[400px]">
             {JSON.stringify(user, null, 2)}
           </pre>
           {error && <p className="text-red-100 mt-4">{error}</p>} */}
 
-          <div className="h-full flex items-center justify-center">
-            <img
-              src={user?.image[0]}
-              alt=""
-              className="rounded-xl"
-            />
-          </div>
+          <div
+            style={{ backgroundImage: `url("${user?.image[0]}")` }}
+            className="bg-cover bg-center rounded-2xl h-full w-full"
+          ></div>
         </div>
 
         {/* Numpad */}
