@@ -47,5 +47,5 @@ export default async function Template1({ params, searchParams }: PageProps) {
     if (currentPage) redirect(`/template1/${user_id}`);
   }
 
-  return <div className="min-h-screen">{renderPage()}</div>;
+  return <div className="min-h-screen w-full">{renderPage()}</div>;
 }
